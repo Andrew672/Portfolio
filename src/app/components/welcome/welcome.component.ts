@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
           (mousemove)="onMouseMove($event)"
           (mouseleave)="onMouseLeave()"
         >
-          <div class="relative w-[420px] h-[420px] flex items-center justify-center">
+          <div class="relative w-[280px] h-[280px] md:w-[420px] md:h-[420px] flex items-center justify-center">
             <div class="relative w-full h-full" [style.transform]="glassTransform()" style="transform-style: preserve-3d">
               <div class="absolute inset-0 blur-3xl opacity-40 breathing-halo"></div>
               <div class="relative w-full h-full breathing-blob overflow-hidden">
@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
                 <div class="absolute top-8 left-12 w-32 h-32 rounded-full bg-white/30 blur-3xl float-reflect-1"></div>
                 <div class="absolute top-16 right-16 w-24 h-24 rounded-full bg-white/20 blur-2xl float-reflect-2"></div>
                 <div class="absolute bottom-20 left-20 w-28 h-28 rounded-full bg-cyan-300/20 blur-3xl float-reflect-3"></div>
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[320px] z-20" [style.transform]="avatarTransform()">
+                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[240px] md:w-[320px] z-20" [style.transform]="avatarTransform()">
                   <img 
                     src="assets/img/andrew.png"
                     class="w-full object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)] pointer-events-none transition-transform duration-500 ease-out"
@@ -33,7 +33,7 @@ import { CommonModule } from '@angular/common';
             </div>
           </div>
         </div>
-        <div class="text-center md:text-left order-2 space-y-4 md:space-y-6 z-30">
+        <div class="text-center md:text-left order-2 space-y-2 md:space-y-6 z-30">
           <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
             Salut, je suis <b>Andrew</b>
           </h1>
