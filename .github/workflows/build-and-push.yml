@@ -2,8 +2,8 @@ name: Build & Push Docker Image to GHCR
 
 on:
   push:
-    branches:
-    - feature/projects
+    tags:
+      - "v*"
 
 jobs:
   build-and-push:
@@ -13,9 +13,21 @@ jobs:
       contents: read
       packages: write
 
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: andrew672/portfolio
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: vars
+        run: |
+          # GITHUB_REF_TYPE=tag, GITHUB_REF_NAME=v1.2.3 par ex.
+          VERSION_TAG="${GITHUB_REF_NAME}"
+          echo "VERSION_TAG=${VERSION_TAG}" >> $GITHUB_ENV
+          echo "version_tag=${VERSION_TAG}" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -34,17 +46,22 @@ jobs:
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ github.token }}
-          
+
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/andrew672/portfolio:latest .
+          # On tag l'image avec la version ET avec latest
+          docker build \
+            -t $REGISTRY/$IMAGE_NAME:${{ env.VERSION_TAG }} \
+            -t $REGISTRY/$IMAGE_NAME:latest \
+            .
 
-      - name: Push Docker image
+      - name: Push Docker image (version + latest)
         run: |
-          docker push ghcr.io/andrew672/portfolio:latest
+          docker push $REGISTRY/$IMAGE_NAME:${{ env.VERSION_TAG }}
+          docker push $REGISTRY/$IMAGE_NAME:latest
 
       - name: Set kubeconfig
         run: |
