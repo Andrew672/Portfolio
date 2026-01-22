@@ -1,0 +1,81 @@
+.detail-overlay {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.detail-content {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 2rem 3rem 2rem 3rem; 
+}
+
+.detail-overlay.closing {
+  animation: fadeOut 0.4s forwards ease-in;
+  pointer-events: none;
+}
+
+.detail-content.closing {
+  animation: slideDown 0.4s forwards cubic-bezier(0.7, 0, 0.84, 0);
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to { opacity: 1; backdrop-filter: blur(12px); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideDown {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(20px) scale(0.9); }
+}
+
+/* --- Animation "Disforme" / Organique --- */
+.organic-shape {
+  animation: organic-breathe 8s ease-in-out infinite;
+}
+
+@keyframes organic-breathe {
+  0% { border-radius: 45px 85px 45px 75px / 75px 45px 75px 45px; }
+  33% { border-radius: 80px 45px 75px 55px / 45px 85px 45px 80px; }
+  66% { border-radius: 55px 75px 50px 85px / 65px 50px 85px 60px; }
+  100% { border-radius: 45px 85px 45px 75px / 75px 45px 75px 45px; }
+}
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes liquid-distort {
+  0% { border-radius: 0.75rem; transform: scale(1); }
+  25% { border-radius: 0.6rem 0.9rem 0.7rem 0.8rem; transform: scale(1.02) skewX(1deg); }
+  50% { border-radius: 0.9rem 0.6rem 0.8rem 0.7rem; transform: scale(1) skewY(-1deg); }
+  75% { border-radius: 0.7rem 0.8rem 0.6rem 0.9rem; transform: scale(0.98) skewX(-1deg); }
+  100% { border-radius: 0.75rem; transform: scale(1); }
+}
+
+.btn-liquid:hover {
+  animation: liquid-distort 2s infinite ease-in-out;
+}

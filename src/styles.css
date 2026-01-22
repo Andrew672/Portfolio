@@ -4,12 +4,36 @@
 
 @theme {
   --animate-blob: blob 7s infinite;
+  --animate-morph: morph 8s ease-in-out infinite;
+  --animate-morph-alt: morph-alt 10s ease-in-out infinite;
+  --animate-morph-slow: morph-slow 12s ease-in-out infinite;
   
   @keyframes blob {
     0% { transform: translate(0px, 0px) scale(1); }
     33% { transform: translate(30px, -50px) scale(1.1); }
     66% { transform: translate(-20px, 20px) scale(0.9); }
     100% { transform: translate(0px, 0px) scale(1); }
+  }
+
+  @keyframes morph {
+    0%, 100% { border-radius: 20px 80px 30px 60px / 60px 40px 70px 30px; }
+    25% { border-radius: 60px 30px 70px 40px / 40px 60px 30px 70px; }
+    50% { border-radius: 40px 60px 20px 80px / 70px 30px 60px 40px; }
+    75% { border-radius: 70px 40px 60px 20px / 30px 80px 40px 60px; }
+  }
+
+  @keyframes morph-alt {
+    0%, 100% { border-radius: 60px 20px 70px 30px / 30px 70px 20px 80px; }
+    25% { border-radius: 30px 70px 40px 60px / 60px 20px 70px 30px; }
+    50% { border-radius: 70px 40px 30px 70px / 20px 60px 40px 70px; }
+    75% { border-radius: 40px 60px 70px 20px / 70px 30px 60px 40px; }
+  }
+
+  @keyframes morph-slow {
+    0%, 100% { border-radius: 80px 40px 30px 60px / 50px 30px 60px 40px; }
+    25% { border-radius: 40px 70px 50px 30px / 30px 50px 40px 70px; }
+    50% { border-radius: 30px 50px 70px 40px / 60px 40px 30px 50px; }
+    75% { border-radius: 50px 30px 40px 70px / 40px 70px 50px 30px; }
   }
 }
 
@@ -34,4 +58,25 @@ html, body {
 .mask-gradient {
   mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.organic-shape-card {
+    border-radius: 20px 80px 30px 60px / 60px 40px 70px 30px;
+    animation: morph 8s ease-in-out infinite;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.organic-shape-card:nth-of-type(2n) {
+    border-radius: 60px 20px 70px 30px / 30px 70px 20px 80px;
+    animation: morph-alt 10s ease-in-out infinite;
+}
+
+.organic-shape-card:nth-of-type(3n) {
+    border-radius: 80px 40px 30px 60px / 50px 30px 60px 40px;
+    animation: morph-slow 12s ease-in-out infinite;
+}
+
+.organic-shape-card:hover {
+    animation-play-state: paused;
+    border-radius: 1rem;
 }

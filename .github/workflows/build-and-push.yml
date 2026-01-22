@@ -1,0 +1,73 @@
+name: Build & Push Docker Image to GHCR
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: andrew672/portfolio
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: vars
+        run: |
+          # GITHUB_REF_TYPE=tag, GITHUB_REF_NAME=v1.2.3 par ex.
+          VERSION_TAG="${GITHUB_REF_NAME}"
+          echo "VERSION_TAG=${VERSION_TAG}" >> $GITHUB_ENV
+          echo "version_tag=${VERSION_TAG}" >> $GITHUB_OUTPUT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Build Angular app
+        run: |
+          npx ng build --configuration=production
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Build Docker image
+        run: |
+          # On tag l'image avec la version ET avec latest
+          docker build \
+            -t $REGISTRY/$IMAGE_NAME:${{ env.VERSION_TAG }} \
+            -t $REGISTRY/$IMAGE_NAME:latest \
+            .
+
+      - name: Push Docker image (version + latest)
+        run: |
+          docker push $REGISTRY/$IMAGE_NAME:${{ env.VERSION_TAG }}
+          docker push $REGISTRY/$IMAGE_NAME:latest
+
+      - name: Set kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl rollout restart deployment portfolio-andrew -n portfolio-prod
