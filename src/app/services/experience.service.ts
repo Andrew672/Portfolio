@@ -11,7 +11,7 @@ export class ExperienceService {
       period: 'Sept. 24 - Présent',
       link: 'https://atos.net/fr',
       location: 'Metz, France',
-      description: "TMA et évolution sur de nombreux projets existants, principalement en Symfony. Travail en méthodologie Agile.",
+      description: "TMA et évolution d'applications Sylfony. Travail en méthode Agile au sein d'une équipe.",
       details: [
           "Maintenance et évolution de fonctionnalités critiques pour la sécurité numérique.",
           "RG2A : Mise en œuvre de bonnes pratiques de sécurité et d'accessibilité.",

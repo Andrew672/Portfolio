@@ -29,9 +29,26 @@ import { Experience } from '../../../models/experience.model';
           <div class="flex flex-col gap-2">
             <h2 class="text-2xl md:text-3xl font-bold text-white pr-8">{{ experience.title }}</h2>
             <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm md:text-base">
-              <span class="text-teal-400 font-medium">@ {{ experience.company }}</span>
+              @if (experience.link) {
+                <a [href]="experience.link" target="_blank" rel="noopener noreferrer" class="text-teal-400 font-medium hover:text-teal-300 transition-colors flex items-center gap-1.5 group/link">
+                  @ {{ experience.company }}
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-60 group-hover/link:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              } @else {
+                <span class="text-teal-400 font-medium">@ {{ experience.company }}</span>
+              }
               <span class="hidden sm:block w-1 h-1 bg-slate-500 rounded-full"></span>
               <span class="text-slate-300 bg-slate-800/50 px-3 py-1 rounded-full border border-white/10">{{ experience.period }}</span>
+              <span class="hidden sm:block w-1 h-1 bg-slate-500 rounded-full"></span>
+              <span class="text-slate-400 flex items-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                {{ experience.location }}
+              </span>
             </div>
           </div>
         </div>
