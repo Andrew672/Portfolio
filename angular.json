@@ -12,6 +12,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "fr",
+        "locales": {
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -33,9 +39,15 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "polyfills": [
+              "@angular/localize/init"
+            ]
           },
           "configurations": {
+            "en": {
+              "localize": ["en"]
+            },
             "production": {
               "budgets": [
                 {
@@ -62,6 +74,9 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
+            "en": {
+              "buildTarget": "portfolio:build:en"
+            },
             "production": {
               "buildTarget": "portfolio:build:production"
             },

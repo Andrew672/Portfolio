@@ -1,8 +1,10 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, Inject, LOCALE_ID } from '@angular/core';
 import { Experience } from '../models/experience.model';
 
 @Injectable({ providedIn: 'root' })
 export class ExperienceService {
+  constructor(@Inject(LOCALE_ID) public locale: string) {}
+
   private readonly _experiences = signal<Experience[]>([
     {
       id: 1,

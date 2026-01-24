@@ -11,7 +11,7 @@ import { ExperienceService } from '../../services/experience.service';
   imports: [CommonModule, ExperienceCardComponent, ExperienceModalComponent],
   template: `
     <section class="h-full w-full flex flex-col justify-center p-4 md:p-20 z-10 relative">
-      <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 md:mb-12 border-l-4 border-teal-500 pl-6">Mon Expérience</h2>
+      <h2 i18n class="text-4xl md:text-6xl font-bold text-white mb-8 md:mb-12 border-l-4 border-teal-500 pl-6">Mon Expérience</h2>
       
       <div class="relative w-full max-w-5xl mx-auto h-[70vh] group">
         

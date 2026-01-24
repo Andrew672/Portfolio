@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="fr" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="282946903684110066" datatype="html">
+        <source>Un développeur</source>
+        <target>A developer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/welcome/welcome.component.ts</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3092483855826105341" datatype="html">
+        <source>Mon Expérience</source>
+        <target>My Experience</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience.component.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8490850457685846039" datatype="html">
+        <source>Mes Projets</source>
+        <target>My Projects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/projects.component.ts</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8582957222949977709" datatype="html">
+        <source> Salut, je suis <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;" />Andrew<x
+            id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;" /></source>
+        <target> Hi, I'm <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;" />Andrew<x
+            id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;" /></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/welcome/welcome.component.ts</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7769517970130320028" datatype="html">
+        <source>FullStack Junior</source>
+        <target>Junior FullStack</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/welcome/welcome.component.ts</context>
+          <context context-type="linenumber">44,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="presentLabel" datatype="html">
+        <source> Actuellement </source>
+        <target> Currently </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">
+            src/app/components/experience/experience-card/experience-card.component.ts</context>
+          <context context-type="linenumber">34,35</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

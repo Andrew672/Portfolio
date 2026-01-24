@@ -34,14 +34,14 @@ import { CommonModule } from '@angular/common';
           </div>
         </div>
         <div class="text-center md:text-left order-2 space-y-2 md:space-y-6 z-30">
-          <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+          <h1 i18n class="text-5xl md:text-7xl font-bold text-white leading-tight">
             Salut, je suis <b>Andrew</b>
           </h1>
           <h2 class="text-2xl md:text-4xl text-slate-300 font-light flex flex-col md:block gap-2">
-            Un développeur 
+            <span i18n>Un développeur</span> 
             <span class="relative inline-block font-bold text-white px-2 py-1 mx-1 transform -skew-x-3">
               <span class="absolute inset-0 bg-teal-600 rounded-lg -z-10 block transform skew-x-3"></span>
-              FullStack Junior
+              <span i18n>FullStack Junior</span>
             </span>
           </h2>
         </div>
