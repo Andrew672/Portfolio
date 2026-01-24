@@ -40,7 +40,7 @@ import { Experience } from '../../../models/experience.model';
                 <span class="text-teal-400 font-medium">@ {{ experience.company }}</span>
               }
               <span class="hidden sm:block w-1 h-1 bg-slate-500 rounded-full"></span>
-              <span class="text-slate-300 bg-slate-800/50 px-3 py-1 rounded-full border border-white/10">{{ experience.period }}</span>
+              <span class="text-slate-300 bg-slate-800/50 px-3 py-1 rounded-full border border-white/10">{{ experience.startDate | date:'MMM yyyy' }} - {{ experience.current ? 'Present' : (experience.endDate | date:'MMM yyyy') }}</span>
               <span class="hidden sm:block w-1 h-1 bg-slate-500 rounded-full"></span>
               <span class="text-slate-400 flex items-center gap-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

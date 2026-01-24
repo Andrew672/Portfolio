@@ -28,7 +28,8 @@ import { Experience } from '../../../models/experience.model';
           <span class="text-sm font-medium inline-block px-2 py-0.5 rounded"
             [ngClass]="experience.current ? 'bg-teal-500/20 text-teal-300' : 'text-slate-500'"
           >
-            {{ experience.period }}
+            {{ experience.startDate | date:'MMM yyyy' }} - 
+            {{ experience.current ? 'Present' : (experience.endDate | date:'MMM yyyy') }}
           </span>
           <span class="text-xs text-slate-500 flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
