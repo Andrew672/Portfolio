@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Experience } from '../../../models/experience.model';
 
@@ -50,6 +50,21 @@ import { Experience } from '../../../models/experience.model';
           {{ experience.description }}
         </p>
 
+        @if (experience.technologies && experience.technologies.length > 0) {
+            <div class="flex items-center gap-2 flex-wrap mb-4" [ngClass]="{'md:justify-end': !isLeft}">
+              @for (tech of experience.technologies.slice(0, maxVisibleTags); track tech) {
+                <span class="px-2 py-0.5 text-xs font-medium bg-teal-600/90 text-white border border-teal-500/30 rounded-md whitespace-nowrap">
+                  {{ tech }}
+                </span>
+              }
+              @if (experience.technologies.length > maxVisibleTags) {
+                <span class="px-2 py-0.5 text-xs font-medium bg-teal-600/70 text-white border border-teal-500/30 rounded-md">
+                  +{{ experience.technologies.length - maxVisibleTags }}
+                </span>
+              }
+            </div>
+          }
+
         <button 
           (click)="onOpenDetails($event)"
           class="text-xs uppercase tracking-widest font-bold text-teal-500 hover:text-teal-300 transition-all duration-300 flex items-center gap-1 group/btn opacity-0 group-hover/card:opacity-100"
@@ -67,6 +82,19 @@ export class ExperienceCardComponent {
   @Input({ required: true }) experience!: Experience;
   @Input() isLeft: boolean = true;
   @Output() openDetails = new EventEmitter<number>();
+  
+  maxVisibleTags = 3;
+
+  constructor() {
+    this.onResize();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (typeof window !== 'undefined') {
+      this.maxVisibleTags = window.innerWidth < 640 ? 2 : 3;
+    }
+  }
 
   onOpenDetails(event: Event) {
     event.stopPropagation();
