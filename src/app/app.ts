@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProjectsComponent } from "./components/projects/projects.component";
 import { ExperienceComponent } from "./components/experience/experience.component";
+import { Meta, Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-root',
@@ -16,9 +18,47 @@ export class App {
 
   constructor(
     @Inject(LOCALE_ID) public locale: string,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private siteTitle: Title,
+    private meta: Meta
   ) {
     this.checkBrowserLanguage();
+
+    this.siteTitle.setTitle(
+      $localize`:@@title:Andrew Marbach – Portfolio FullStack`
+    );
+
+
+    this.meta.updateTag({
+      name: 'description',
+      content: $localize`:@@metaDescription:
+        Portfolio d'Andrew Marbach, développeur FullStack Junior spécialisé en DevOps et Web Development.
+      `
+    });
+
+    this.meta.updateTag({
+      property: 'og:title',
+      content: $localize`:@@ogTitle:Andrew Marbach – Portfolio FullStack`
+    });
+
+    this.meta.updateTag({
+      property: 'og:description',
+      content: $localize`:@@ogDescription:
+        Découvrez le portfolio d'Andrew Marbach, développeur fullstack junior spécialisé en DevOps et développement web.
+      `
+    });
+
+    this.meta.updateTag({
+      property: 'twitter:title',
+      content: $localize`:@@twitterTitle:Andrew Marbach – Portfolio FullStack`
+    });
+
+    this.meta.updateTag({
+      property: 'twitter:description',
+      content: $localize`:@@twitterDescription:
+        Découvrez le portfolio d'Andrew Marbach, développeur fullstack junior spécialisé en DevOps et développement web.
+      `
+    });
   }
 
   private checkBrowserLanguage() {
