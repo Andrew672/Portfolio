@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../models/projet.model';
 
@@ -77,7 +77,7 @@ import { Project } from '../../../models/projet.model';
           </p>
           
           @if (project.technologies && project.technologies.length > 0) {
-            <div class="flex items-center gap-2 flex-wrap overflow-hidden h-6">
+            <div class="flex items-center gap-2 flex-wrap">
               @for (tech of project.technologies.slice(0, maxVisibleTags); track tech) {
                 <span class="px-2 py-0.5 text-xs font-medium bg-teal-600/90 text-white border border-teal-500/30 rounded-md whitespace-nowrap">
                   {{ tech }}
@@ -111,6 +111,17 @@ export class ProjectCardComponent {
   @Output() select = new EventEmitter<Project>();
   
   maxVisibleTags = 3;
+
+  constructor() {
+    this.onResize();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (typeof window !== 'undefined') {
+      this.maxVisibleTags = window.innerWidth < 640 ? 2 : 3;
+    }
+  }
 
   handleSelect() {
     this.select.emit(this.project);
