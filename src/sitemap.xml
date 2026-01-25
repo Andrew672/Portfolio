@@ -4,17 +4,17 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
     <url>
-        <loc>https://andrew-marbach.fr/fr</loc>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://andrew-marbach.fr/fr" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://andrew-marbach.fr/en" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://andrew-marbach.fr/fr" />
+        <loc>https://andrew-marbach.fr/fr/</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://andrew-marbach.fr/fr/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://andrew-marbach.fr/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://andrew-marbach.fr/fr/" />
     </url>
 
     <url>
-        <loc>https://andrew-marbach.fr/en</loc>
-        <xhtml:link rel="alternate" hreflang="fr" href="https://andrew-marbach.fr/fr" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://andrew-marbach.fr/en" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://andrew-marbach.fr/fr" />
+        <loc>https://andrew-marbach.fr/en/</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://andrew-marbach.fr/fr/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://andrew-marbach.fr/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://andrew-marbach.fr/fr/" />
     </url>
 
 </urlset>
