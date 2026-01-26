@@ -60,7 +60,7 @@ import { Experience } from '../../../models/experience.model';
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    Mission
+                    <span i18n="@@experienceMissionHeader">Description de la mission</span>
                 </h3>
                 <p class="text-slate-300 leading-relaxed">{{ experience.description }}</p>
                 @if (experience.details && experience.details.length > 0) {
@@ -82,7 +82,7 @@ import { Experience } from '../../../models/experience.model';
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                           </svg>
-                          Stack Technique
+                          <span i18n="@@experienceTechnologiesHeader">Stack Technique</span>
                       </h3>
                       <div class="flex flex-wrap gap-2">
                           @for (tech of experience.technologies; track tech) {
@@ -100,7 +100,7 @@ import { Experience } from '../../../models/experience.model';
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                           </svg>
-                          Compétences
+                          <span i18n="@@experienceSkillsHeader">Compétences</span>
                       </h3>
                       <div class="flex flex-wrap gap-2">
                           @for (skill of experience.skills; track skill) {
@@ -117,7 +117,7 @@ import { Experience } from '../../../models/experience.model';
 
         <div class="p-4 md:p-6 border-t border-white/5 bg-slate-900/50 flex justify-end">
             <button (click)="handleClose()" class="px-6 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg transition-colors font-medium text-sm">
-                Fermer
+                <span i18n="@@closeButton">Fermer</span>
             </button>
         </div>
 

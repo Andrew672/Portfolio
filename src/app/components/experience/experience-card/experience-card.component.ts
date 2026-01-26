@@ -68,10 +68,16 @@ import { Experience } from '../../../models/experience.model';
         <button 
           (click)="onOpenDetails($event)"
           class="text-xs uppercase tracking-widest font-bold text-teal-500 hover:text-teal-300 transition-all duration-300 flex items-center gap-1 group/btn opacity-0 group-hover/card:opacity-100"
-          [ngClass]="{'flex-row-reverse': !isLeft}">
+          [ngClass]="{'flex-row-reverse': !isLeft}"
+          i18n="@@seeDetailsButton"
+        >
           Voir Détail
-          <span class="transform transition-transform group-hover/btn:translate-x-1" *ngIf="isLeft">→</span>
-          <span class="transform transition-transform group-hover/btn:-translate-x-1" *ngIf="!isLeft">←</span>
+          @if (isLeft) {
+            <span class="transform transition-transform group-hover/btn:translate-x-1">→</span>
+          }
+          @else {
+            <span class="transform transition-transform group-hover/btn:-translate-x-1">←</span>
+          }
         </button>
 
       </div>

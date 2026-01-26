@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[240px] md:w-[320px] z-20" [style.transform]="avatarTransform()">
                   <img 
                     src="assets/img/andrew.png"
+                    alt="Avatar d'Andrew Marbach"
                     class="w-full object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)] pointer-events-none transition-transform duration-500 ease-out"
                     [style.transform]="isHovering() ? 'scale(1.08)' : 'scale(1)'"
                     draggable="false"

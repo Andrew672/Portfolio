@@ -57,11 +57,81 @@
           <context context-type="linenumber">34,35</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="seeDetailsButton" datatype="html">
+        <source> Voir Détail <x id="START_BLOCK_IF" equiv-text="@if (isLeft) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;transform transition-transform group-hover/btn:translate-x-1&quot;&gt;"/>→<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="START_BLOCK_ELSE" equiv-text="@else {"/><x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;transform transition-transform group-hover/btn:-translate-x-1&quot;&gt;"/>←<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_ELSE" equiv-text="}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience-card/experience-card.component.ts</context>
+          <context context-type="linenumber">74,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="experienceMissionHeader" datatype="html">
+        <source>Description de la mission</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
+          <context context-type="linenumber">63,65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="experienceTechnologiesHeader" datatype="html">
+        <source>Stack Technique</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
+          <context context-type="linenumber">85,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="experienceSkillsHeader" datatype="html">
+        <source>Compétences</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
+          <context context-type="linenumber">103,105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="closeButton" datatype="html">
+        <source>Fermer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
+          <context context-type="linenumber">120,121</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3092483855826105341" datatype="html">
         <source>Mon Expérience</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience.component.ts</context>
           <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projectDescriptionHeader" datatype="html">
+        <source>Description du projet</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-modale/project-modale.component.ts</context>
+          <context context-type="linenumber">75,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projectDetailsHeader" datatype="html">
+        <source>Détails techniques</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-modale/project-modale.component.ts</context>
+          <context context-type="linenumber">78,79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="projectFunctionalitiesHeader" datatype="html">
+        <source>Fonctionnalités</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-modale/project-modale.component.ts</context>
+          <context context-type="linenumber">82,83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="visitSiteButton" datatype="html">
+        <source>Visiter le site</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-modale/project-modale.component.ts</context>
+          <context context-type="linenumber">97,98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="viewSourceButton" datatype="html">
+        <source>Voir le code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-modale/project-modale.component.ts</context>
+          <context context-type="linenumber">110,111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8490850457685846039" datatype="html">
