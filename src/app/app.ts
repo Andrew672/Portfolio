@@ -28,6 +28,10 @@ export class App {
       $localize`:@@title:Andrew Marbach – Portfolio FullStack`
     );
 
+    this.meta.updateTag({
+      property: 'og:site_name',
+     content: $localize`:@@ogSiteName:Andrew Marbach – Portfolio FullStack`
+    });
 
     this.meta.updateTag({
       name: 'description',
