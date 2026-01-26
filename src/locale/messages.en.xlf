@@ -226,5 +226,29 @@
         <context context-type="linenumber">110,111</context>
       </context-group>
     </trans-unit>
+    <trans-unit id="5351967851013641894" datatype="html">
+      <source> Un développeur <x id="START_TAG_SPAN_1" ctype="x-span_1"
+          equiv-text="&lt;span class=&quot;relative inline-block font-bold text-white px-2 py-1 mx-1 transform -skew-x-3&quot;&gt;" /><x
+          id="START_TAG_SPAN" ctype="x-span"
+          equiv-text="&lt;span
+                class=&quot;absolute inset-0 bg-teal-600 rounded-lg -z-10 block transform skew-x-3&quot;
+              &gt;" /><x
+          id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" /> FullStack Junior <x
+          id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
+      </source>
+      <target> A Junior<x id="START_TAG_SPAN_1" ctype="x-span_1"
+          equiv-text="&lt;span class=&quot;relative inline-block font-bold text-white px-2 py-1 mx-1 transform -skew-x-3&quot;&gt;" /><x
+          id="START_TAG_SPAN" ctype="x-span"
+          equiv-text="&lt;span
+                class=&quot;absolute inset-0 bg-teal-600 rounded-lg -z-10 block transform skew-x-3&quot;
+              &gt;" /><x
+          id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" /> FullStack Developer <x
+          id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;" />
+      </target>
+      <context-group purpose="location">
+        <context context-type="sourcefile">src/app/components/welcome/welcome.component.ts</context>
+        <context context-type="linenumber">45,53</context>
+      </context-group>
+    </trans-unit>
   </file>
 </xliff>
