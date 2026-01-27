@@ -25,8 +25,12 @@ import { Project } from '../../../models/projet.model';
       >
         
         <div class="h-48 sm:h-64 w-full relative shrink-0 overflow-hidden">
-          <div *ngIf="!project.imageUrl" class="absolute inset-0 w-full h-full" [ngClass]="project.gradient"></div>
-          <img *ngIf="project.imageUrl" [src]="project.imageUrl" class="absolute inset-0 w-full h-full object-cover" [alt]="project.title">
+          @if (project.gradient && !project.imageUrl) {
+            <div class="absolute inset-0 w-full h-full" [ngClass]="project.gradient"></div>
+          }
+          @else {
+            <img [src]="project.imageUrl" class="absolute inset-0 w-full h-full object-cover" [alt]="project.title">
+          }
 
           <button 
             (click)="handleClose()"

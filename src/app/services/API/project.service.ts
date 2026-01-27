@@ -1,8 +1,8 @@
 import { Injectable, signal, Inject, LOCALE_ID, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Project } from '../models/projet.model';
+import { Project } from '../../models/projet.model';
 import { map } from 'rxjs/operators';
-import { ApiResponse } from '../models/API/responseProject.model';
+import { ApiResponse } from '../../models/API/responseProject.model';
 
 
 @Injectable({ providedIn: 'root' })

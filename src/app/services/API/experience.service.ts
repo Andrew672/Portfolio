@@ -1,8 +1,8 @@
 import { Injectable, signal, Inject, LOCALE_ID, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Experience } from '../models/experience.model';
+import { Experience } from '../../models/experience.model';
 import { map } from 'rxjs/operators';
-import { ApiResponse } from '../models/API/responseExperience.model';
+import { ApiResponse } from '../../models/API/responseExperience.model';
 
 @Injectable({ providedIn: 'root' })
 export class ExperienceService {
