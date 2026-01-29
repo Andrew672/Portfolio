@@ -50,7 +50,7 @@ import { EtudeService } from '../../services/API/etude.service';
           <div class="relative min-h-full">
             
             <!-- Ligne verticale de timeline -->
-            <div class="absolute left-[10px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-amber-500/30 to-transparent"></div>
+            <div class="absolute left-[10px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-slate-600/50 to-transparent"></div>
             
             <!-- Items avec point + carte sur chaque ligne -->
             <div class="space-y-8">
@@ -60,7 +60,7 @@ import { EtudeService } from '../../services/API/etude.service';
                   <button 
                       (click)="scrollToIndex(i)"
                       class="w-5 h-5 rounded-full z-20 transition-all duration-300 cursor-pointer focus:outline-none border-2 border-slate-900 flex-shrink-0 mt-6"
-                      [ngClass]="(selectedItem()?.id === exp.id || exp.current) ? 'bg-amber-400 scale-150' : 'bg-slate-600 hover:bg-amber-500 hover:scale-125 shadow-lg'">
+                      [ngClass]="(selectedItem()?.id === exp.id || exp.current) ? 'bg-white scale-150 animate-pulse' : 'bg-slate-600 hover:bg-slate-400 hover:scale-125 shadow-lg'">
                   </button>
                   
                   <!-- Carte -->
