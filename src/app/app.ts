@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, signal } from '@angular/core';
+import { Component, Inject, LOCALE_ID, signal, Renderer2, ElementRef, afterNextRender, DestroyRef, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -15,12 +15,16 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class App {
   protected readonly title = signal('porfolio');
+  private cursorElement?: HTMLElement;
+  private destroyRef = inject(DestroyRef);
 
   constructor(
     @Inject(LOCALE_ID) public locale: string,
     @Inject(DOCUMENT) private document: Document,
     private siteTitle: Title,
-    private meta: Meta
+    private meta: Meta,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {
     this.checkBrowserLanguage();
 
@@ -62,6 +66,53 @@ export class App {
       content: $localize`:@@twitterDescription:
         Découvrez le portfolio d'Andrew Marbach, développeur fullstack junior spécialisé en DevOps et développement web.
       `
+    });
+
+    this.setupCustomCursor();
+  }
+
+  private setupCustomCursor() {
+    afterNextRender(() => {
+      this.cursorElement = this.renderer.createElement('div');
+      this.renderer.addClass(this.cursorElement, 'custom-cursor');
+      this.renderer.appendChild(this.document.body, this.cursorElement);
+
+      this.renderer.listen('document', 'mousemove', (e: MouseEvent) => {
+        if (this.cursorElement) {
+          this.renderer.setStyle(this.cursorElement, 'left', `${e.clientX}px`);
+          this.renderer.setStyle(this.cursorElement, 'top', `${e.clientY}px`);
+        }
+      });
+
+      this.renderer.listen('document', 'mouseover', (e: MouseEvent) => {
+        const target = e.target as HTMLElement;        
+        const isInteractive = target.tagName === 'A' || 
+                            target.tagName === 'BUTTON' || 
+                            target.onclick || 
+                            target.closest('button') ||
+                            target.closest('a') ||
+                            target.closest('[class*="cursor-pointer"]') ||
+                            target.closest('.group') ||
+                            window.getComputedStyle(target).cursor === 'pointer';
+        
+        if (isInteractive) {
+          if (this.cursorElement) {
+            this.renderer.addClass(this.cursorElement, 'hover');
+          }
+        }
+      });
+
+      this.renderer.listen('document', 'mouseout', (e: MouseEvent) => {
+        if (this.cursorElement) {
+          this.renderer.removeClass(this.cursorElement, 'hover');
+        }
+      });
+
+      this.destroyRef.onDestroy(() => {
+        if (this.cursorElement) {
+          this.renderer.removeChild(this.document.body, this.cursorElement);
+        }
+      });
     });
   }
 

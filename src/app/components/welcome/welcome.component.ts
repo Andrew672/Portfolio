@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="h-full w-full flex items-center justify-center p-8 z-10 relative overflow-hidden">
+    <section class="h-full w-full flex items-center justify-center z-10 relative overflow-hidden">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl w-full z-0">
         <div 
           class="perspective-container flex justify-center md:justify-end order-1 z-10"
@@ -53,11 +53,15 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
 
-      <div class="absolute bottom-10 animate-bounce block w-full text-center pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-auto text-slate-500">
+      <button 
+        (click)="scrollToNextSection()"
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-all duration-300 z-50 bg-transparent border-0 p-2"
+        aria-label="Défiler vers le bas"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-slate-400 hover:text-slate-200">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
-      </div>
+      </button>
     </section>
   `,
   styleUrls: ['./welcome.component.css']
@@ -102,5 +106,17 @@ export class WelcomeComponent {
   onMouseLeave() {
     this.isHovering.set(false);
     this.rotations.set({ x: 0, y: 0 });
+  }
+
+  scrollToNextSection() {
+    if (typeof document !== 'undefined') {
+      const mainElement = document.querySelector('main');
+      if (mainElement) {
+        mainElement.scrollBy({
+          top: mainElement.clientHeight,
+          behavior: 'smooth'
+        });
+      }
+    }
   }
 }
