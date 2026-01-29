@@ -24,7 +24,7 @@ export class ProjectService {
           description: proj.description,
           details: proj.detail,
           functionalities: proj.functionnalities?.map(f => f.functionnality) || [],
-          gradient: 'from-slate-700 to-slate-800 hover:from-teal-900/50 hover:to-slate-800',
+          gradient: 'from-slate-700 to-slate-800 hover:from-amber-900/50 hover:to-slate-800',
           imageUrl: proj.image ? `https://cms.andrew-marbach.fr${proj.image.url}` : undefined,
           thumbnailUrl: proj.thumbnail ? `https://cms.andrew-marbach.fr${proj.thumbnail.url}` : undefined,
           technologies: proj.technologies?.map(t => t.name) || [],

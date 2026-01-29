@@ -35,9 +35,9 @@ import { Project } from '../../../models/projet.model';
 
           <button 
             (click)="handleClose()"
-            class="absolute top-4 right-4 z-50 group flex items-center justify-center w-12 h-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 hover:scale-110 hover:border-teal-500/50 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] overflow-hidden cursor-pointer"
+            class="absolute top-4 right-4 z-50 group flex items-center justify-center w-12 h-12 bg-white/5 backdrop-blur-md border border-white/10 rounded-full hover:bg-white/10 hover:scale-110 hover:border-amber-500/50 transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] overflow-hidden cursor-pointer"
           >
-            <div class="absolute inset-0 bg-gradient-to-tr from-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-slate-300 group-hover:text-white relative z-10 transition-transform duration-300">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -65,7 +65,7 @@ import { Project } from '../../../models/projet.model';
 
                 @for (tech of project.technologies; track tech) {
                 <span  
-                    class="px-3 py-1 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-300 text-sm font-medium">
+                    class="px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-300 text-sm font-medium">
                     {{ tech }}
                 </span>
                 }
@@ -91,7 +91,7 @@ import { Project } from '../../../models/projet.model';
 
             <div class="flex flex-col sm:flex-row gap-4 pt-6">
               @if (project.siteUrl) {
-                    <a class="btn-liquid cursor-pointer flex-1 relative group overflow-hidden py-3.5 px-6 rounded-xl backdrop-blur-md border border-teal-500/30 bg-gradient-to-br from-teal-500/20 to-teal-900/40 text-teal-100 font-semibold text-center transition-all duration-300 hover:border-teal-400/50 hover:shadow-[0_0_30px_rgba(20,184,166,0.3)] hover:-translate-y-0.5"
+                    <a class="btn-liquid cursor-pointer flex-1 relative group overflow-hidden py-3.5 px-6 rounded-xl backdrop-blur-md border border-amber-500/30 bg-gradient-to-br from-amber-500/20 to-amber-900/40 text-amber-100 font-semibold text-center transition-all duration-300 hover:border-amber-400/50 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:-translate-y-0.5"
                         href="{{ project.siteUrl }}" target="_blank" rel="noopener noreferrer">
                         <span class="relative z-10 flex items-center justify-center gap-2">
                             <span i18n="@@visitSiteButton">Visiter le site</span>
@@ -99,7 +99,7 @@ import { Project } from '../../../models/projet.model';
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                             </svg>
                         </span>
-                        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-teal-400/20 to-transparent"></div>
+                        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent"></div>
                         <div class="absolute inset-0 border-t border-white/10 rounded-xl pointer-events-none"></div>
                     </a>
                 }

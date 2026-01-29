@@ -15,7 +15,7 @@ import { Etude } from '../../../models/etude.model';
       [style.boxShadow]="etude.current ? 'inset 0 0 60px rgba(20, 184, 166, 0.05), 0 8px 32px rgba(0, 0, 0, 0.3)' : 'inset 0 0 60px rgba(255, 255, 255, 0.03), 0 8px 32px rgba(0, 0, 0, 0.3)'"
     >
       <div class="flex flex-col items-start">
-        <h3 class="font-bold text-lg mb-1" [ngClass]="etude.current ? 'text-teal-300' : 'text-slate-200'">
+        <h3 class="font-bold text-lg mb-1 text-amber-600">
           {{ etude.title }}
         </h3>
         
@@ -42,7 +42,7 @@ import { Etude } from '../../../models/etude.model';
         
         <div class="flex flex-wrap items-center gap-2 mb-3">
           <span class="text-sm font-medium inline-block py-0.5 rounded"
-            [ngClass]="etude.current ? 'bg-teal-500/20 text-teal-300 px-2' : 'text-slate-500'"
+            [ngClass]="etude.current ? 'bg-amber-500/20 text-amber-300 px-2' : 'text-slate-500'"
           >
             {{ etude.startDate | date:'MMM yyyy' | titlecase }} - 
             @if (etude.current) {

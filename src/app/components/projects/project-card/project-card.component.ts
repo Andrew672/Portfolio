@@ -68,7 +68,7 @@ import { Project } from '../../../models/projet.model';
 
         <div class="p-6 flex flex-col gap-3">
           <h3 
-            class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+            class="text-2xl font-bold text-amber-600"
           >
             {{ project.title }}
           </h3>
@@ -79,19 +79,19 @@ import { Project } from '../../../models/projet.model';
           @if (project.technologies && project.technologies.length > 0) {
             <div class="flex items-center gap-2 flex-wrap">
               @for (tech of project.technologies.slice(0, maxVisibleTags); track tech) {
-                <span class="px-2 py-0.5 text-xs font-medium bg-teal-600/90 text-white border border-teal-500/30 rounded-md whitespace-nowrap">
+                <span class="px-2 py-0.5 text-xs font-medium bg-amber-600/90 text-white border border-amber-500/30 rounded-md whitespace-nowrap">
                   {{ tech }}
                 </span>
               }
               @if (project.technologies.length > maxVisibleTags) {
-                <span class="px-2 py-0.5 text-xs font-medium bg-teal-600/70 text-white border border-teal-500/30 rounded-md">
+                <span class="px-2 py-0.5 text-xs font-medium bg-amber-600/70 text-white border border-amber-500/30 rounded-md">
                   +{{ project.technologies.length - maxVisibleTags }}
                 </span>
               }
             </div>
           }
           
-          <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity text-teal-400">
+          <div class="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity text-amber-400">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>

@@ -45,7 +45,7 @@ import { CommonModule } from '@angular/common';
             Un développeur
             <span class="relative inline-block font-bold text-white px-2 py-1 mx-1 transform -skew-x-3">
               <span
-                class="absolute inset-0 bg-teal-600 rounded-lg -z-10 block transform skew-x-3"
+                class="absolute inset-0 bg-amber-600 rounded-lg -z-10 block transform skew-x-3"
               ></span>
               FullStack Junior
             </span>
