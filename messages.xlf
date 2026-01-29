@@ -6,14 +6,14 @@
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ogSiteName" datatype="html">
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="metaDescription" datatype="html">
@@ -22,14 +22,14 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">43,45</context>
+          <context context-type="linenumber">45,47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ogTitle" datatype="html">
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ogDescription" datatype="html">
@@ -38,14 +38,14 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">55,57</context>
+          <context context-type="linenumber">57,59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="twitterTitle" datatype="html">
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="twitterDescription" datatype="html">
@@ -54,63 +54,63 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">67,69</context>
+          <context context-type="linenumber">69,71</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6536611414944877917" datatype="html">
         <source> À propos de moi </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">12,13</context>
+          <context context-type="linenumber">13,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1950895303286305959" datatype="html">
         <source> Étudiant en dernière année de Master et alternant, passionné par le développement web, je m&apos;oriente principalement vers le backend, le DevOps et le cloud. Curieux et adaptable, je m&apos;intègre rapidement et conçois des applications performantes et maintenables. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5478379415236449789" datatype="html">
         <source>Années d&apos;études</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">24,25</context>
+          <context context-type="linenumber">25,26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8061950257888627052" datatype="html">
         <source>Projets réalisés</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">28,29</context>
+          <context context-type="linenumber">29,30</context>
         </context-group>
       </trans-unit>
       <trans-unit id="152625797886681940" datatype="html">
         <source>Technologies</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">32,33</context>
+          <context context-type="linenumber">33,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1141998028692225593" datatype="html">
         <source>Ans d&apos;expérience</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">36,37</context>
+          <context context-type="linenumber">37,38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8615650319363734991" datatype="html">
         <source>Me contacter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">49,50</context>
+          <context context-type="linenumber">50,51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7346543197257946959" datatype="html">
         <source>Télécharger CV</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">59,60</context>
+          <context context-type="linenumber">60,61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="presentLabelEtude" datatype="html">
@@ -181,6 +181,34 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience.component.ts</context>
           <context context-type="linenumber">42,43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3476583629594890489" datatype="html">
+        <source>Accueil</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7131503233535545455" datatype="html">
+        <source>À propos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2823327110111393272" datatype="html">
+        <source>Projets</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8921646052564591281" datatype="html">
+        <source>Parcours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navbar/navbar.component.ts</context>
+          <context context-type="linenumber">13,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="projectDescriptionHeader" datatype="html">

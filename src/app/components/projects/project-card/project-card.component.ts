@@ -45,7 +45,7 @@ import { Project } from '../../../models/projet.model';
           @if (project.thumbnailUrl) {
             <img 
               [src]="project.thumbnailUrl" 
-              class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700" 
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
               [alt]="project.title"
             >
           } @else if (project.gradient) {

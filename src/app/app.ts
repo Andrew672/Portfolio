@@ -1,5 +1,6 @@
 import { Component, Inject, LOCALE_ID, signal, Renderer2, ElementRef, afterNextRender, DestroyRef, inject } from '@angular/core';
 import { ToastComponent } from './components/toast/toast.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -11,7 +12,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WelcomeComponent, AboutMeComponent, ProjectsComponent, ExperienceComponent, ToastComponent],
+  imports: [RouterOutlet, WelcomeComponent, AboutMeComponent, ProjectsComponent, ExperienceComponent, ToastComponent, NavbarComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
