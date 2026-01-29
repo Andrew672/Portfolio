@@ -1,7 +1,9 @@
 import { Component, Inject, LOCALE_ID, signal, Renderer2, ElementRef, afterNextRender, DestroyRef, inject } from '@angular/core';
+import { ToastComponent } from './components/toast/toast.component';
 import { DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ProjectsComponent } from "./components/projects/projects.component";
 import { ExperienceComponent } from "./components/experience/experience.component";
 import { Meta, Title } from '@angular/platform-browser';
@@ -9,7 +11,7 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, WelcomeComponent, ProjectsComponent, ExperienceComponent],
+  imports: [RouterOutlet, WelcomeComponent, AboutMeComponent, ProjectsComponent, ExperienceComponent, ToastComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -72,6 +74,12 @@ export class App {
   }
 
   private setupCustomCursor() {
+    // Ne pas activer le custom cursor sur mobile/tactile
+    const isTouch = typeof window !== 'undefined' && (
+      'ontouchstart' in window || navigator.maxTouchPoints > 0
+    );
+    if (isTouch) return;
+
     afterNextRender(() => {
       this.cursorElement = this.renderer.createElement('div');
       this.renderer.addClass(this.cursorElement, 'custom-cursor');

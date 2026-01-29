@@ -50,6 +50,7 @@ import { CommonModule } from '@angular/common';
               FullStack Junior
             </span>
           </h2>
+
         </div>
       </div>
 
