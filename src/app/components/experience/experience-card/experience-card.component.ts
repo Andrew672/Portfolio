@@ -8,17 +8,13 @@ import { Experience } from '../../../models/experience.model';
   imports: [CommonModule],
   template: `
     <div 
-      class="p-6 rounded-xl transition-all duration-500 ease-out w-full group/card hover:-translate-y-2 cursor-pointer"
-      [ngClass]="{
-        'text-left md:text-right': !isLeft, 
-        'text-left': isLeft
-      }"
+      class="p-6 rounded-xl transition-all duration-500 ease-out w-full group/card hover:-translate-y-2 cursor-pointer text-left"
       [style.background]="'rgba(30, 41, 59, 0.4)'"
       [style.backdropFilter]="'blur(20px)'"
       [style.border]="experience.current ? '1px solid rgba(20, 184, 166, 0.3)' : '1px solid rgba(255, 255, 255, 0.1)'"
       [style.boxShadow]="experience.current ? 'inset 0 0 60px rgba(20, 184, 166, 0.05), 0 8px 32px rgba(0, 0, 0, 0.3)' : 'inset 0 0 60px rgba(255, 255, 255, 0.03), 0 8px 32px rgba(0, 0, 0, 0.3)'"
     >
-      <div class="flex flex-col" [ngClass]="{'md:items-end': !isLeft, 'md:items-start': isLeft}">
+      <div class="flex flex-col items-start">
         <h3 class="font-bold text-lg" [ngClass]="experience.current ? 'text-teal-300' : 'text-slate-200'">
           {{ experience.title }}
           @if (experience.company) {
@@ -53,7 +49,7 @@ import { Experience } from '../../../models/experience.model';
         </p>
 
         @if (experience.technologies && experience.technologies.length > 0) {
-            <div class="flex items-center gap-2 flex-wrap mb-4" [ngClass]="{'md:justify-end': !isLeft}">
+            <div class="flex items-center gap-2 flex-wrap mb-4">
               @for (tech of experience.technologies.slice(0, maxVisibleTags); track tech) {
                 <span class="px-2 py-0.5 text-xs font-medium bg-teal-600/90 text-white border border-teal-500/30 rounded-md whitespace-nowrap">
                   {{ tech }}
@@ -71,16 +67,10 @@ import { Experience } from '../../../models/experience.model';
           <button 
             (click)="onOpenDetails($event)"
             class="text-xs uppercase tracking-widest font-bold text-teal-500 hover:text-teal-300 transition-all duration-300 flex items-center gap-1 group/btn opacity-0 group-hover/card:opacity-100"
-            [ngClass]="{'flex-row-reverse': !isLeft}"
             i18n="@@seeDetailsButton"
           >
             Voir Détail
-            @if (isLeft) {
-              <span class="transform transition-transform group-hover/btn:translate-x-1">→</span>
-            }
-            @else {
-              <span class="transform transition-transform group-hover/btn:-translate-x-1">←</span>
-            }
+            <span class="transform transition-transform group-hover/btn:translate-x-1">→</span>
           </button>
         }
 
