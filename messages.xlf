@@ -6,14 +6,14 @@
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ogSiteName" datatype="html">
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">37</context>
         </context-group>
       </trans-unit>
       <trans-unit id="metaDescription" datatype="html">
@@ -22,14 +22,14 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">38,40</context>
+          <context context-type="linenumber">42,44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ogTitle" datatype="html">
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ogDescription" datatype="html">
@@ -38,14 +38,14 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">50,52</context>
+          <context context-type="linenumber">54,56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="twitterTitle" datatype="html">
         <source>Andrew Marbach – Portfolio FullStack</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="twitterDescription" datatype="html">
@@ -54,77 +54,84 @@
       </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.ts</context>
-          <context context-type="linenumber">62,64</context>
+          <context context-type="linenumber">66,68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="presentLabelEtude" datatype="html">
-        <source> En cours </source>
+        <source>En cours</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/etude-card/etude-card.component.ts</context>
-          <context context-type="linenumber">54,55</context>
+          <context context-type="linenumber">48,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5478048441518216229" datatype="html">
+        <source> En cours </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/experience/experience-card/experience-card.component.ts</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="presentLabel" datatype="html">
-        <source> Actuellement </source>
+        <source>Actuellement</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience-card/experience-card.component.ts</context>
-          <context context-type="linenumber">34,35</context>
+          <context context-type="linenumber">41,42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="seeDetailsButton" datatype="html">
-        <source> Voir Détail <x id="START_BLOCK_IF" equiv-text="@if (isLeft) {"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span class=&quot;transform transition-transform group-hover/btn:translate-x-1&quot;&gt;"/>→<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="START_BLOCK_ELSE" equiv-text="@else {"/><x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;transform transition-transform group-hover/btn:-translate-x-1&quot;&gt;"/>←<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="CLOSE_BLOCK_ELSE" equiv-text="}"/></source>
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Voir les détails<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="START_TAG__SVG_SVG" ctype="x-_svg_svg" equiv-text="&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; class=&quot;h-4 w-4 transform transition-transform group-hover/btn:translate-x-1&quot; fill=&quot;none&quot; viewBox=&quot;0 0 24 24&quot; stroke=&quot;currentColor&quot;&gt;"/><x id="START_TAG__SVG_PATH" ctype="x-_svg_path" equiv-text="&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M13 7l5 5m0 0l-5 5m5-5H6&quot;/&gt;"/><x id="CLOSE_TAG__SVG_PATH" ctype="x-_svg_path" equiv-text="&lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M13 7l5 5m0 0l-5 5m5-5H6&quot;/&gt;"/><x id="CLOSE_TAG__SVG_SVG" ctype="x-_svg_svg" equiv-text="&lt;/svg&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience-card/experience-card.component.ts</context>
-          <context context-type="linenumber">75,82</context>
+          <context context-type="linenumber">80,85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="experienceMissionHeader" datatype="html">
         <source>Description de la mission</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
-          <context context-type="linenumber">63,65</context>
+          <context context-type="linenumber">67,69</context>
         </context-group>
       </trans-unit>
       <trans-unit id="experienceTechnologiesHeader" datatype="html">
         <source>Stack Technique</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
-          <context context-type="linenumber">85,87</context>
+          <context context-type="linenumber">89,91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="experienceSkillsHeader" datatype="html">
         <source>Compétences</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
-          <context context-type="linenumber">103,105</context>
+          <context context-type="linenumber">107,109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="closeButton" datatype="html">
         <source>Fermer</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience-modal/experience-modal.component.ts</context>
-          <context context-type="linenumber">120,121</context>
+          <context context-type="linenumber">124,125</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7663119333122205463" datatype="html">
-        <source><x id="START_BLOCK_IF" equiv-text="@if (currentView() === &apos;experience&apos;) {"/> Mon Expérience <x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="START_BLOCK_ELSE" equiv-text="@else {"/> Études <x id="CLOSE_BLOCK_ELSE" equiv-text="}"/></source>
+      <trans-unit id="3669424134879788198" datatype="html">
+        <source> Mon parcours </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience.component.ts</context>
-          <context context-type="linenumber">18,25</context>
+          <context context-type="linenumber">18,19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8541867801431653963" datatype="html">
-        <source>Expérience</source>
+      <trans-unit id="5153493289786491040" datatype="html">
+        <source>Professionnel</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience.component.ts</context>
-          <context context-type="linenumber">35,36</context>
+          <context context-type="linenumber">31,32</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1073193676081867607" datatype="html">
-        <source>Études</source>
+      <trans-unit id="1338480611696165967" datatype="html">
+        <source>Formation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/experience/experience.component.ts</context>
-          <context context-type="linenumber">46,47</context>
+          <context context-type="linenumber">42,43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="projectDescriptionHeader" datatype="html">
@@ -178,7 +185,7 @@
       </trans-unit>
       <trans-unit id="5351967851013641894" datatype="html">
         <source> Un développeur <x id="START_TAG_SPAN_1" ctype="x-span_1" equiv-text="&lt;span class=&quot;relative inline-block font-bold text-white px-2 py-1 mx-1 transform -skew-x-3&quot;&gt;"/><x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span
-                class=&quot;absolute inset-0 bg-teal-600 rounded-lg -z-10 block transform skew-x-3&quot;
+                class=&quot;absolute inset-0 bg-amber-600 rounded-lg -z-10 block transform skew-x-3&quot;
               &gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> FullStack Junior <x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/welcome/welcome.component.ts</context>

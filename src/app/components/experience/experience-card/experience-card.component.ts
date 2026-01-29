@@ -11,15 +11,10 @@ import { Experience } from '../../../models/experience.model';
       class="py-6 transition-all duration-500 ease-out w-full group/card cursor-pointer text-left"
     >
       <div class="flex flex-col items-start space-y-3">
-        <div class="flex items-start justify-between w-full">
+        <div class="flex items-start gap-3">
           <h3 class="font-bold text-xl" [ngClass]="experience.current ? 'text-amber-600' : 'text-white'">
             {{ experience.title }}
           </h3>
-          @if (experience.current) {
-            <span class="px-2 py-0.5 text-xs font-bold bg-amber-600/20 text-amber-600 rounded-full border border-amber-600/30">
-              En cours
-            </span>
-          }
         </div>
 
         @if (experience.company) {
