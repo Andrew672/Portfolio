@@ -12,7 +12,7 @@ import { Experience } from '../../../models/experience.model';
     >
       <div class="flex flex-col items-start space-y-3">
         <div class="flex items-start gap-3">
-          <h3 class="font-bold text-xl" [ngClass]="experience.current ? 'text-amber-600' : 'text-white'">
+          <h3 class="font-bold text-xl text-white">
             {{ experience.title }}
           </h3>
         </div>

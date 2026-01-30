@@ -68,7 +68,7 @@ import { Project } from '../../../models/projet.model';
 
         <div class="p-6 flex flex-col gap-3">
           <h3 
-            class="text-2xl font-bold text-amber-600"
+            class="text-2xl font-bold text-white"
           >
             {{ project.title }}
           </h3>
