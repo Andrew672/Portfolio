@@ -11,7 +11,7 @@ import { Etude } from '../../../models/etude.model';
       class="py-6 transition-all duration-500 ease-out w-full group/card text-left"
     >
       <div class="flex flex-col items-start space-y-3">
-        <h3 class="font-bold text-xl" [ngClass]="etude.current ? 'text-amber-600' : 'text-white'">
+        <h3 class="font-bold text-xl text-white">
           {{ etude.title }}
         </h3>
         

@@ -68,49 +68,63 @@
         <source> Étudiant en dernière année de Master et alternant, passionné par le développement web, je m&apos;oriente principalement vers le backend, le DevOps et le cloud. Curieux et adaptable, je m&apos;intègre rapidement et conçois des applications performantes et maintenables. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7867861027086869413" datatype="html">
+        <source> Je travaille également sur divers petits projets au sein de l&apos;organisation <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>CambouisCORP<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. (Un groupe de développeurs passionnés par la création de projets open-source et l&apos;apprentissage collaboratif.) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
+          <context context-type="linenumber">20,22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5478379415236449789" datatype="html">
         <source>Années d&apos;études</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">25,26</context>
+          <context context-type="linenumber">27,28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8061950257888627052" datatype="html">
         <source>Projets réalisés</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">29,30</context>
+          <context context-type="linenumber">31,32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="152625797886681940" datatype="html">
         <source>Technologies</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">33,34</context>
+          <context context-type="linenumber">35,36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1141998028692225593" datatype="html">
         <source>Ans d&apos;expérience</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">37,38</context>
+          <context context-type="linenumber">39,40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8615650319363734991" datatype="html">
         <source>Me contacter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">50,51</context>
+          <context context-type="linenumber">51,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3642443368339139913" datatype="html">
+        <source>Voir l&apos;organisation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
+          <context context-type="linenumber">62,63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7346543197257946959" datatype="html">
         <source>Télécharger CV</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/about-me/about-me.component.ts</context>
-          <context context-type="linenumber">60,61</context>
+          <context context-type="linenumber">72,73</context>
         </context-group>
       </trans-unit>
       <trans-unit id="presentLabelEtude" datatype="html">
