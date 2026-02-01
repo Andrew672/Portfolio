@@ -56,7 +56,7 @@ import { CommonModule } from '@angular/common';
 
       <button 
         (click)="scrollToNextSection()"
-        class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-all duration-300 z-50 bg-transparent border-0 p-2"
+        class="hidden md:block absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hover:scale-110 transition-all duration-300 z-50 bg-transparent border-0 p-2"
         aria-label="Défiler vers le bas"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-slate-400 hover:text-slate-200">
