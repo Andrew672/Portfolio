@@ -1,51 +1,37 @@
 import { Injectable, signal, Inject, LOCALE_ID, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Experience } from '../../models/experience.model';
 import { map } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseExperience.model';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({ providedIn: 'root' })
 export class ExperienceService {
 
-  private http = inject(HttpClient);
+  constructor(private apiService: ApiService) {}
 
-  constructor(@Inject(LOCALE_ID) public locale: string) {
-    this.fetchExperiences();
-  }
+  private experiences$ = this.apiService.getContents<ApiResponse>({
+      collection: 'experiences',
+      sort: '-endDate', // tri décroissant
+    }).pipe(
+      map(response => response.docs.map(exp => this.mapExperience(exp)))
+    );
 
-  private readonly _experiences = signal<Experience[]>([]);
-  readonly experiences = this._experiences.asReadonly();
+  readonly experiences = toSignal(this.experiences$, { initialValue: [] as Experience[] });
 
-  private fetchExperiences() {
-    this.http.get<ApiResponse>(`https://cms.andrew-marbach.fr/api/experiences?locale=${this.locale}&trash=false`)
-      .pipe(
-        map(response => response.docs.map(exp => ({
-          id: exp.id,
-          title: exp.title,
-          company: exp.company,
-          startDate: new Date(exp.startDate),
-          link: exp.link,
-          location: exp.location,
-          description: exp.description,
-          details: exp.details?.map(d => d.detail) || [],
-          skills: exp.skills?.map(s => s.name) || [],
-          technologies: exp.technologies?.map(t => t.name) || [],
-          current: exp.isCurrentlyWorkingHere,
-          endDate: exp.endDate ? new Date(exp.endDate) : undefined
-        } as Experience)))
-      )
-
-      .subscribe({
-        next: (experiences) => {
-          experiences.sort((a, b) => {
-            if (a.current === b.current) {
-              return b.startDate.getTime() - a.startDate.getTime();
-            }
-            return a.current ? -1 : 1;
-          });
-          this._experiences.set(experiences);
-        },
-        error: (error) => console.error('Failed to load experiences', error)
-      });
+  private mapExperience(exp: any): Experience {
+    return {
+      id: exp.id,
+      title: exp.title,
+      company: exp.company,
+      startDate: new Date(exp.startDate),
+      link: exp.link,
+      location: exp.location,
+      description: exp.description,
+      details: exp.details?.map((d: any) => d.detail) || [],
+      skills: exp.skills?.map((s: any) => s.name) || [],
+      technologies: exp.technologies?.map((t: any) => t.name) || [],
+      current: exp.isCurrentlyWorkingHere,
+      endDate: exp.endDate ? new Date(exp.endDate) : undefined
+    } as Experience;
   }
 }
