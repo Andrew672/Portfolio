@@ -1,4 +1,5 @@
 import { Component, Inject, LOCALE_ID, signal, Renderer2, ElementRef, afterNextRender, DestroyRef, inject } from '@angular/core';
+import { LanguageService } from './services/language.service';
 import { ToastComponent } from './components/toast/toast.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DOCUMENT } from '@angular/common';
@@ -20,6 +21,7 @@ export class App {
   protected readonly title = signal('porfolio');
   private cursorElement?: HTMLElement;
   private destroyRef = inject(DestroyRef);
+  private languageService = inject(LanguageService);
 
   constructor(
     @Inject(LOCALE_ID) public locale: string,
@@ -161,6 +163,8 @@ export class App {
        }
     }
 
+    this.languageService.setLanguage(lang);
+    console.debug('[App] switchLanguage ->', lang);
     this.document.location.href = newUrl;
   }
 }

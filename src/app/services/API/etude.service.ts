@@ -1,7 +1,7 @@
-import { Injectable, signal, Inject, LOCALE_ID, inject } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Etude } from '../../models/etude.model';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseEtude';
 import { LexicalParserService } from '../lexical-parser.service';
 import { environment } from '../../../environments/environment';
@@ -14,14 +14,12 @@ export class EtudeService {
   private lexicalParser = inject(LexicalParserService);
 
   constructor(@Inject(LOCALE_ID) public locale: string) {
-    this.fetchEtudes();
   }
 
-  private readonly _etudes = signal<Etude[]>([]);
-  readonly etudes = this._etudes.asReadonly();
-
-  private fetchEtudes() {
-    this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/studies?depth=2&draft=false&locale=${this.locale}&trash=false`)
+  loadEtudes(locale?: string) {
+    const useLocale = locale ?? this.locale;
+    console.debug('[EtudeService] loadEtudes', useLocale);
+    return this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/studies?depth=2&draft=false&locale=${useLocale}&trash=false`)
       .pipe(
         map(response => response.docs.map(etude => ({
           id: etude.id,
@@ -38,19 +36,14 @@ export class EtudeService {
           endDate: etude.endDate ? new Date(etude.endDate) : undefined,
           degree: etude.degree,
           field: etude.fieldOfStudy
-        } as Etude)))
-      )
-      .subscribe({
-        next: (etudes) => {
-          etudes.sort((a, b) => {
-            if (a.current === b.current) {
-              return b.startDate.getTime() - a.startDate.getTime();
-            }
-            return a.current ? -1 : 1;
-          });
-          this._etudes.set(etudes);
-        },
-        error: (error) => console.error('Failed to load etudes', error)
-      });
+        } as Etude))),
+        tap((etudes: Etude[]) => console.debug('[EtudeService] loaded', etudes?.length ?? 0, 'etudes for', useLocale)),
+        map((etudes: Etude[]) => etudes.sort((a, b) => {
+          if (a.current === b.current) {
+            return b.startDate.getTime() - a.startDate.getTime();
+          }
+          return a.current ? -1 : 1;
+        }))
+      );
   }
 }

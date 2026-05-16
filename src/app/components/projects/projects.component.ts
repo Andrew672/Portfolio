@@ -1,4 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, LOCALE_ID, DestroyRef, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { startWith, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { LanguageService } from '../../services/language.service';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProjectModaleComponent } from './project-modale/project-modale.component';
@@ -33,9 +36,42 @@ import { ProjectService } from '../../services/API/project.service';
 })
 export class ProjectsComponent {
   private readonly projectService = inject(ProjectService);
-  readonly projects = this.projectService.projects;
+  readonly projects = signal<Project[]>([]);
+  private locale = inject(LOCALE_ID) as string;
+  private languageService = inject(LanguageService);
+  private destroyRef = inject(DestroyRef);
+  private platformId = inject(PLATFORM_ID);
 
   selectedProject = signal<Project | null>(null);
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      console.debug('[ProjectsComponent] ngOnInit - wiring language subscription for', this.locale);
+      const sub = this.languageService.language$
+        .pipe(startWith(this.locale), distinctUntilChanged(), switchMap((lang) => this.projectService.loadProjects(lang)))
+        .subscribe({
+          next: (projects) => {
+            console.debug('[ProjectsComponent] received projects', projects?.length ?? 0);
+            this.projects.set(projects);
+          },
+          error: (error) => console.error('Failed to load projects', error)
+        });
+      this.destroyRef.onDestroy(() => sub.unsubscribe());
+    }
+  }
+
+  private loadProjects() {
+    // kept for manual refresh; delegate to service and let subscription handle initial/load-on-language
+    console.debug('[ProjectsComponent] manual refresh requested');
+    this.projectService.loadProjects(this.locale).subscribe({
+      next: (projects) => this.projects.set(projects),
+      error: (error) => console.error('Failed to load projects', error)
+    });
+  }
+
+  refresh() {
+    this.loadProjects();
+  }
 
   selectProject(project: Project) {
     this.selectedProject.set(project);

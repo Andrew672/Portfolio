@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
-  cmsApiBaseUrl: 'https://cms.andrew-marbach.fr'
+  production: false,
+  cmsApiBaseUrl: 'http://localhost:3000'
 };

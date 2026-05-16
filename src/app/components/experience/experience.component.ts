@@ -1,4 +1,7 @@
-import { Component, ElementRef, QueryList, ViewChildren, signal, inject } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren, signal, inject, OnInit, LOCALE_ID, DestroyRef, PLATFORM_ID } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
+import { isPlatformBrowser } from '@angular/common';
+import { startWith, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { Experience } from '../../models/experience.model';
 import { Etude } from '../../models/etude.model';
@@ -107,28 +110,81 @@ export class ExperienceComponent {
 
   private experienceService = inject(ExperienceService);
   private etudeService = inject(EtudeService);
-  readonly experiences = this.experienceService.experiences;
-  readonly etudes = this.etudeService.etudes;
+  private locale = inject(LOCALE_ID) as string;
+  private languageService = inject(LanguageService);
+  private destroyRef = inject(DestroyRef);
+  private platformId = inject(PLATFORM_ID);
+  readonly experiences = signal<Experience[]>([]);
+  readonly etudes = signal<Etude[]>([]);
 
   currentItems = signal<(Experience | Etude)[]>([]);
 
   constructor() {
-    // Initialize with experiences
-    this.updateCurrentItems();
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      console.debug('[ExperienceComponent] ngOnInit - wiring language subscription for', this.locale);
+      const sub = this.languageService.language$
+        .pipe(startWith(this.locale), distinctUntilChanged(), switchMap((lang) => {
+          // choose which loader based on current view
+          if (this.currentView() === 'experience') {
+            return this.experienceService.loadExperiences(lang);
+          }
+          return this.etudeService.loadEtudes(lang);
+        }))
+        .subscribe({
+          next: (items) => {
+            if (this.currentView() === 'experience') {
+              const experiences = items as Experience[];
+              console.debug('[ExperienceComponent] received experiences', experiences?.length ?? 0);
+              this.experiences.set(experiences);
+              this.currentItems.set(experiences);
+            } else {
+              const etudes = items as Etude[];
+              console.debug('[ExperienceComponent] received etudes', etudes?.length ?? 0);
+              this.etudes.set(etudes);
+              this.currentItems.set(etudes);
+            }
+          },
+          error: (error) => console.error('Failed to load items', error)
+        });
+      this.destroyRef.onDestroy(() => sub.unsubscribe());
+    }
   }
 
   switchView(view: 'experience' | 'etude') {
     this.currentView.set(view);
     this.selectedItem.set(undefined);
-    this.updateCurrentItems();
+    this.loadCurrentItems();
   }
 
-  private updateCurrentItems() {
+  private loadCurrentItems() {
     if (this.currentView() === 'experience') {
-      this.currentItems.set(this.experiences());
+      console.debug('[ExperienceComponent] loadCurrentItems - loading experiences for', this.locale);
+      this.experienceService.loadExperiences(this.locale).subscribe({
+        next: (experiences) => {
+          console.debug('[ExperienceComponent] received experiences', experiences?.length ?? 0);
+          this.experiences.set(experiences);
+          this.currentItems.set(experiences);
+        },
+        error: (error) => console.error('Failed to load experiences', error)
+      });
     } else {
-      this.currentItems.set(this.etudes());
+      console.debug('[ExperienceComponent] loadCurrentItems - loading etudes for', this.locale);
+      this.etudeService.loadEtudes(this.locale).subscribe({
+        next: (etudes) => {
+          console.debug('[ExperienceComponent] received etudes', etudes?.length ?? 0);
+          this.etudes.set(etudes);
+          this.currentItems.set(etudes);
+        },
+        error: (error) => console.error('Failed to load etudes', error)
+      });
     }
+  }
+
+  refresh() {
+    this.loadCurrentItems();
   }
 
   asExperience(item: Experience | Etude): Experience {

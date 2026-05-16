@@ -1,7 +1,7 @@
-import { Injectable, signal, Inject, LOCALE_ID, inject } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Project } from '../../models/projet.model';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseProject.model';
 import { environment } from '../../../environments/environment';
 
@@ -11,14 +11,12 @@ export class ProjectService {
   private http = inject(HttpClient);
 
   constructor(@Inject(LOCALE_ID) public locale: string) {
-    this.fetchProjects();
   }
 
-  private readonly _projects = signal<Project[]>([]);
-  readonly projects = this._projects.asReadonly();
-
-  private fetchProjects() {
-    this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/projects?depth=2&draft=false&locale=${this.locale}&trash=false`)
+  loadProjects(locale?: string) {
+    const useLocale = locale ?? this.locale;
+    console.debug('[ProjectService] loadProjects', useLocale);
+    return this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/projects?depth=2&draft=false&locale=${useLocale}&trash=false`)
       .pipe(
         map(response => response.docs.map(proj => ({
           title: proj.title,
@@ -32,14 +30,8 @@ export class ProjectService {
           wip: proj.isCurrentlyWorkingOn,
           githubUrl: proj.repoURL || undefined,
           siteUrl: proj.siteURL || undefined
-        } as Project))
-        )
-      )
-      .subscribe({
-        next: (projects) => {
-          this._projects.set(projects);
-        },
-        error: (error) => console.error('Failed to load projects', error)
-      });
+        } as Project))),
+        tap((projects: Project[]) => console.debug('[ProjectService] loaded', projects?.length ?? 0, 'projects for', useLocale))
+      );
   }
 }

@@ -1,7 +1,7 @@
-import { Injectable, signal, Inject, LOCALE_ID, inject } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Experience } from '../../models/experience.model';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseExperience.model';
 import { environment } from '../../../environments/environment';
 
@@ -11,14 +11,12 @@ export class ExperienceService {
   private http = inject(HttpClient);
 
   constructor(@Inject(LOCALE_ID) public locale: string) {
-    this.fetchExperiences();
   }
 
-  private readonly _experiences = signal<Experience[]>([]);
-  readonly experiences = this._experiences.asReadonly();
-
-  private fetchExperiences() {
-    this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/experiences?locale=${this.locale}&trash=false`)
+  loadExperiences(locale?: string) {
+    const useLocale = locale ?? this.locale;
+    console.debug('[ExperienceService] loadExperiences', useLocale);
+    return this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/experiences?locale=${useLocale}&trash=false`)
       .pipe(
         map(response => response.docs.map(exp => ({
           id: exp.id,
@@ -33,20 +31,14 @@ export class ExperienceService {
           technologies: exp.technologies?.map(t => t.name) || [],
           current: exp.isCurrentlyWorkingHere,
           endDate: exp.endDate ? new Date(exp.endDate) : undefined
-        } as Experience)))
-      )
-
-      .subscribe({
-        next: (experiences) => {
-          experiences.sort((a, b) => {
-            if (a.current === b.current) {
-              return b.startDate.getTime() - a.startDate.getTime();
-            }
-            return a.current ? -1 : 1;
-          });
-          this._experiences.set(experiences);
-        },
-        error: (error) => console.error('Failed to load experiences', error)
-      });
+        } as Experience))),
+        tap((experiences: Experience[]) => console.debug('[ExperienceService] loaded', experiences?.length ?? 0, 'experiences for', useLocale)),
+        map((experiences: Experience[]) => experiences.sort((a, b) => {
+          if (a.current === b.current) {
+            return b.startDate.getTime() - a.startDate.getTime();
+          }
+          return a.current ? -1 : 1;
+        }))
+      );
   }
 }
