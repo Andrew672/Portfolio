@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Project } from '../../models/projet.model';
 import { map } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseProject.model';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
@@ -17,7 +18,7 @@ export class ProjectService {
   readonly projects = this._projects.asReadonly();
 
   private fetchProjects() {
-    this.http.get<ApiResponse>(`https://cms.andrew-marbach.fr/api/projects?depth=2&draft=false&locale=${this.locale}&trash=false`)
+    this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/projects?depth=2&draft=false&locale=${this.locale}&trash=false`)
       .pipe(
         map(response => response.docs.map(proj => ({
           title: proj.title,
@@ -25,8 +26,8 @@ export class ProjectService {
           details: proj.detail,
           functionalities: proj.functionnalities?.map(f => f.functionnality) || [],
           gradient: 'from-slate-700 to-slate-800 hover:from-amber-900/50 hover:to-slate-800',
-          imageUrl: proj.image ? `https://cms.andrew-marbach.fr${proj.image.url}` : undefined,
-          thumbnailUrl: proj.thumbnail ? `https://cms.andrew-marbach.fr${proj.thumbnail.url}` : undefined,
+          imageUrl: proj.image ? `${environment.cmsApiBaseUrl}${proj.image.url}` : undefined,
+          thumbnailUrl: proj.thumbnail ? `${environment.cmsApiBaseUrl}${proj.thumbnail.url}` : undefined,
           technologies: proj.technologies?.map(t => t.name) || [],
           wip: proj.isCurrentlyWorkingOn,
           githubUrl: proj.repoURL || undefined,

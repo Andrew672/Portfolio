@@ -4,6 +4,7 @@ import { Etude } from '../../models/etude.model';
 import { map } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseEtude';
 import { LexicalParserService } from '../lexical-parser.service';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({ providedIn: 'root' })
@@ -20,7 +21,7 @@ export class EtudeService {
   readonly etudes = this._etudes.asReadonly();
 
   private fetchEtudes() {
-    this.http.get<ApiResponse>(`https://cms.andrew-marbach.fr/api/studies?depth=2&draft=false&locale=${this.locale}&trash=false`)
+    this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/studies?depth=2&draft=false&locale=${this.locale}&trash=false`)
       .pipe(
         map(response => response.docs.map(etude => ({
           id: etude.id,

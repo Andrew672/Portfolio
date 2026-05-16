@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Experience } from '../../models/experience.model';
 import { map } from 'rxjs/operators';
 import { ApiResponse } from '../../models/API/responseExperience.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ExperienceService {
@@ -17,7 +18,7 @@ export class ExperienceService {
   readonly experiences = this._experiences.asReadonly();
 
   private fetchExperiences() {
-    this.http.get<ApiResponse>(`https://cms.andrew-marbach.fr/api/experiences?locale=${this.locale}&trash=false`)
+    this.http.get<ApiResponse>(`${environment.cmsApiBaseUrl}/api/experiences?locale=${this.locale}&trash=false`)
       .pipe(
         map(response => response.docs.map(exp => ({
           id: exp.id,
