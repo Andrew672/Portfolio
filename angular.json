@@ -90,6 +90,27 @@
               ],
               "outputHashing": "all"
             },
+            "pre-dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -106,6 +127,12 @@
             },
             "production": {
               "buildTarget": "portfolio:build:production"
+            },
+            "pre-prod": {
+              "buildTarget": "portfolio:build:pre-prod"
+            },
+            "dev": {
+              "buildTarget": "portfolio:build:pre-prod"
             },
             "development": {
               "buildTarget": "portfolio:build:development"
